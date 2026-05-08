@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+build/
+dist/
+.eggs/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+# Build artifacts
+*.so
+*.dylib
+*.dll
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# CrystalMem state files (don't commit user data)
+*.crystal
+*.crystal.tmp
+test_state_*/
+
+# Benchmark outputs
+/tmp/cm_*.json
+bench_results/
+
+# Cached models
+.cache/
+sentence_transformers/

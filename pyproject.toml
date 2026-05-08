@@ -1,0 +1,74 @@
+[build-system]
+requires = ["hatchling>=1.24.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "crystal-mem"
+version = "0.1.0"
+description = "Research-backed agent memory with mathematically exact GDPR-clean forget, federated merge, and portable crystal files."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Maxim Kuznetsov" }]
+keywords = ["llm", "memory", "agent", "rag", "hrr", "octonion", "gdpr", "mcp"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Intended Audience :: Developers",
+  "Development Status :: 3 - Alpha",
+]
+dependencies = [
+  "torch>=2.0",
+  "numpy>=1.20",
+]
+
+[project.optional-dependencies]
+embeddings = [
+  "sentence-transformers>=2.2",
+  "transformers>=4.30",
+]
+mcp = [
+  "mcp>=1.0",
+]
+langchain = [
+  "langchain-core>=0.1",
+  "langchain>=0.1",
+]
+llamaindex = [
+  "llama-index-core>=0.10",
+]
+extractors = [
+  "openai>=1.0",
+  "anthropic>=0.20",
+]
+dev = [
+  "pytest>=8.0",
+  "pytest-asyncio>=0.23",
+  "ruff>=0.5",
+]
+all = [
+  "sentence-transformers>=2.2",
+  "transformers>=4.30",
+  "mcp>=1.0",
+  "langchain-core>=0.1",
+  "llama-index-core>=0.10",
+]
+
+[project.scripts]
+crystal-mem-mcp = "crystal_mem.mcp_server:main"
+crystal-mem-bench-episodic = "crystal_mem.bench.episodic:main"
+crystal-mem-bench-mem0 = "crystal_mem.bench.mem0_compat:main"
+crystal-mem-bench-ops = "crystal_mem.bench.operations:main"
+
+[project.urls]
+Homepage = "https://github.com/mxkuzn/crystal-mem"
+Issues = "https://github.com/mxkuzn/crystal-mem/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["crystal_mem"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"

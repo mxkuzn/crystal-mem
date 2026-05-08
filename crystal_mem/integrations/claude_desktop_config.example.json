@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "crystal-mem": {
+      "command": "python",
+      "args": ["-m", "crystal_mem.mcp_server",
+               "--user-id", "alice",
+               "--dim", "1024",
+               "--heads", "4",
+               "--state", "/Users/alice/.crystal_mem/alice.crystal"],
+      "env": {}
+    }
+  }
+}
